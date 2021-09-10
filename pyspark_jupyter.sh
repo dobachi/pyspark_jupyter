@@ -13,6 +13,8 @@
 # Note:
 # Use .profile to define private environmental vairables
 # e.x. OPTIONS
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+pushd ${SCRIPT_DIR}
 if [ -e .profile ]; then
 . .profile
 fi
@@ -33,4 +35,7 @@ export SPARK_LOCAL_IP=${SPARK_LOCAL_IP:-localhost}
 export SPARK_HOME=${SPARK_HOME:-/usr/local/spark/default}
 PYSPARK_BIN=${PYSPARK_BIN:-/usr/local/spark/default/bin/pyspark}
 
+echo "exec: " ${PYSPARK_BIN} ${OPTIONS}
+
+popd
 ${PYSPARK_BIN} ${OPTIONS}
