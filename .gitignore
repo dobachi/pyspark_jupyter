@@ -22,3 +22,6 @@ tags
 
 # Python
 venv
+
+# Jupyter
+.ipynb_checkpoints
